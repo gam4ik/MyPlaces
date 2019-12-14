@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController {
 
@@ -15,13 +16,14 @@ class MapViewController: UIViewController {
     
     var place = Place()
     let annotationIdentifier = "annotationIdentifier"
+    let locationManager = CLLocationManager()
+    let regionInMeters = 10_000.00
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
-        
         setupPlacemark()
+        checkLocationServices()
     }
     
     private func setupPlacemark() {
@@ -47,10 +49,67 @@ class MapViewController: UIViewController {
             self.mapView.showAnnotations([annotation], animated: true)
             self.mapView.selectAnnotation(annotation, animated: true)
         }
+        
+    }
+    
+    private func checkLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupLocationServices()
+            checkLocationAuthorization()
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.showAlert(title: "Location services are disabled", message: "To enable it go to: Settings -> Privacy -> Location Services and turn on")
+            }
+        }
+    }
+    
+    private func setupLocationServices() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    private func checkLocationAuthorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            break
+        case .denied:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.showAlert(title: "Your location is not availeble", message: "To give premission go to: Settings -> MyPlaces -> Location")
+            }
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            //show alert controller
+            break
+        case .authorizedAlways:
+            break
+        @unknown default:
+            print("New case is avalible")
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
     @IBAction func closeVC() {
         dismiss(animated: true)
+    }
+    
+    @IBAction func centerInUserLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion(center: location,
+                                            latitudinalMeters: regionInMeters,
+                                            longitudinalMeters: regionInMeters)
+            mapView.setRegion(region, animated: true)
+        }
     }
     
 }
@@ -75,5 +134,11 @@ extension MapViewController: MKMapViewDelegate {
         
         
         return annotationView
+    }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationAuthorization()
     }
 }

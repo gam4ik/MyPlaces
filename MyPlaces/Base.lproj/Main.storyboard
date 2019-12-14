@@ -212,6 +212,17 @@
                                     <action selector="closeVC" destination="LP5-0B-uGi" eventType="touchUpInside" id="Isy-Xp-Y9N"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHD-im-KxJ">
+                                <rect key="frame" x="285" y="557" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="19Z-fA-Rsl"/>
+                                    <constraint firstAttribute="width" constant="50" id="uk1-5T-y4J"/>
+                                </constraints>
+                                <state key="normal" image="Location"/>
+                                <connections>
+                                    <action selector="centerInUserLocation" destination="LP5-0B-uGi" eventType="touchUpInside" id="NQC-ij-gaR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -219,8 +230,10 @@
                             <constraint firstItem="pEA-k4-O4y" firstAttribute="top" secondItem="SWJ-Jm-Jcf" secondAttribute="top" id="RAW-FH-G18"/>
                             <constraint firstItem="pEA-k4-O4y" firstAttribute="bottom" secondItem="SWJ-Jm-Jcf" secondAttribute="bottom" id="Yc8-Sh-AnW"/>
                             <constraint firstItem="z0X-j5-cb9" firstAttribute="top" secondItem="SWJ-Jm-Jcf" secondAttribute="top" constant="40" id="ked-eq-jSa"/>
+                            <constraint firstItem="SWJ-Jm-Jcf" firstAttribute="bottom" secondItem="cHD-im-KxJ" secondAttribute="bottom" constant="40" id="m6B-GN-NVj"/>
                             <constraint firstItem="pEA-k4-O4y" firstAttribute="trailing" secondItem="SWJ-Jm-Jcf" secondAttribute="trailing" id="ouq-lk-j0Q"/>
                             <constraint firstItem="pEA-k4-O4y" firstAttribute="leading" secondItem="SWJ-Jm-Jcf" secondAttribute="leading" id="qcw-fF-lgo"/>
+                            <constraint firstItem="SWJ-Jm-Jcf" firstAttribute="trailing" secondItem="cHD-im-KxJ" secondAttribute="trailing" constant="40" id="rId-ZX-pwz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SWJ-Jm-Jcf"/>
                     </view>
@@ -388,6 +401,7 @@
     </scenes>
     <resources>
         <image name="AZ" width="25" height="24"/>
+        <image name="Location" width="128" height="128"/>
         <image name="Photo" width="195" height="196"/>
         <image name="camcel" width="128" height="128"/>
         <image name="map" width="50" height="50"/>
