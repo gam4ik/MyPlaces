@@ -19,6 +19,7 @@
 		840B18F623A058A900994924 /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B18F523A058A900994924 /* NewPlaceViewController.swift */; };
 		840B18F823A118AA00994924 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B18F723A118AA00994924 /* StorageManager.swift */; };
 		84BD3DEA23A44B4000C81F40 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD3DE923A44B4000C81F40 /* MapViewController.swift */; };
+		84BD3DEC23A6928D00C81F40 /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BD3DEB23A6928D00C81F40 /* MapManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		840B18F523A058A900994924 /* NewPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
 		840B18F723A118AA00994924 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		84BD3DE923A44B4000C81F40 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		84BD3DEB23A6928D00C81F40 /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		F900560C71BA0F717CBF591F /* Pods-MyPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlaces.debug.xcconfig"; path = "Target Support Files/Pods-MyPlaces/Pods-MyPlaces.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,13 +92,10 @@
 		840B18DA23A01A1E00994924 /* MyPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				84BD3DEF23A69E4B00C81F40 /* Helpers */,
+				84BD3DEE23A69E2200C81F40 /* Models */,
+				84BD3DED23A69DCB00C81F40 /* View Controllers */,
 				840B18DB23A01A1E00994924 /* AppDelegate.swift */,
-				840B18EF23A0200500994924 /* MainTableViewController.swift */,
-				84BD3DE923A44B4000C81F40 /* MapViewController.swift */,
-				840B18F523A058A900994924 /* NewPlaceViewController.swift */,
-				840B18F123A0433100994924 /* CustomTableViewCell.swift */,
-				840B18F323A04A5E00994924 /* PlaceModel.swift */,
-				840B18F723A118AA00994924 /* StorageManager.swift */,
 				840B18DD23A01A1E00994924 /* SceneDelegate.swift */,
 				840B18E123A01A1E00994924 /* Main.storyboard */,
 				840B18E423A01A2100994924 /* Assets.xcassets */,
@@ -104,6 +103,34 @@
 				840B18E923A01A2100994924 /* Info.plist */,
 			);
 			path = MyPlaces;
+			sourceTree = "<group>";
+		};
+		84BD3DED23A69DCB00C81F40 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				840B18EF23A0200500994924 /* MainTableViewController.swift */,
+				84BD3DE923A44B4000C81F40 /* MapViewController.swift */,
+				840B18F523A058A900994924 /* NewPlaceViewController.swift */,
+				840B18F123A0433100994924 /* CustomTableViewCell.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		84BD3DEE23A69E2200C81F40 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				840B18F323A04A5E00994924 /* PlaceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84BD3DEF23A69E4B00C81F40 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				840B18F723A118AA00994924 /* StorageManager.swift */,
+				84BD3DEB23A6928D00C81F40 /* MapManager.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +252,7 @@
 				840B18F623A058A900994924 /* NewPlaceViewController.swift in Sources */,
 				840B18F023A0200500994924 /* MainTableViewController.swift in Sources */,
 				840B18F823A118AA00994924 /* StorageManager.swift in Sources */,
+				84BD3DEC23A6928D00C81F40 /* MapManager.swift in Sources */,
 				840B18F423A04A5E00994924 /* PlaceModel.swift in Sources */,
 				840B18F223A0433100994924 /* CustomTableViewCell.swift in Sources */,
 				840B18DE23A01A1E00994924 /* SceneDelegate.swift in Sources */,
